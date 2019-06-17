@@ -1,8 +1,5 @@
 variable "public_key" {}
-variable "cpu" {}
-variable "memory" {}
 variable "disk" {}
-variable "image" {}
 variable "name" {}
 variable "subnet" {}
 variable "vpc_security_group_id" {}
@@ -26,7 +23,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-16.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
   }
 
   filter {
