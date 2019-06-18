@@ -7,7 +7,7 @@ variable "access_key" {}
 variable "secret_key" {}
 variable "region" {}
 
-provider "ranchervm" {
+provider "aws" {
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
   region = "${var.region}"
@@ -62,5 +62,5 @@ output "public_ip" {
 }
 
 output "hostname" {
-  value = "${split(".", aws_instance.instance.public_dns)[0]}"
+  value = "${aws_instance.instance.public_dns}"
 }
