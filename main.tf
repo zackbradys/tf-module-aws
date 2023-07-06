@@ -1,18 +1,13 @@
+variable "public_key" {}
+variable "image" {}
+variable "disk" {}
+variable "instance_type" {}
+variable "name" {}
+variable "subnet" {}
+variable "vpc_security_group_id" {}
 variable "access_key" {}
 variable "secret_key" {}
 variable "region" {}
-
-variable "public_key" {}
-
-variable "image" {}
-variable "instance_type" {}
-variable "subnet" {}
-variable "vpc_security_group_id" {}
-
-variable "disk" {}
-
-variable "name" {}
-
 
 provider "aws" {
   access_key = var.access_key
