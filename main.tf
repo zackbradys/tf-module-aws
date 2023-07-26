@@ -54,7 +54,7 @@ resource "aws_instance" "instance" {
     volume_type           = "${var.volume_type}"
     volume_size           = var.disk
     encrypted             = var.volume_encrypted
-    delete_on_termination = var.delete_volume_on_termination
+    delete_on_termination = var.volume_delete_on_termination
   }
 }
 
