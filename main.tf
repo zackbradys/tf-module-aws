@@ -1,30 +1,33 @@
-variable "associate_public_ip" {
-  default = true
-}
 variable "public_key" {}
 variable "image" {}
 variable "disk" {}
 variable "instance_type" {}
-variable "volume_encrypted" {
-  default = true
-}
-variable "volume_delete_on_termination" {
-  default = true
-}
 variable "name" {}
 variable "subnet" {}
 variable "vpc_security_group_id" {}
 variable "access_key" {}
 variable "secret_key" {}
 variable "region" {}
-variable "tag_provisioner" {
-  default = "terraform"
+variable "associate_public_ip" {
+  default = true
 }
 variable "tag_owner" {
   default = "hobbyfarm"
 }
+variable "tag_provisioner" {
+  default = "terraform"
+}
+variable "tag_keeprunning" {
+  default = "true"
+}
 variable "volume_type" {
   default = "gp3"
+}
+variable "volume_encrypted" {
+  default = true
+}
+variable "volume_delete_on_termination" {
+  default = true
 }
 
 provider "aws" {
@@ -49,6 +52,7 @@ resource "aws_instance" "instance" {
     Name        = "${var.name}"
     Owner       = "${var.tag_owner}"
     provisioner = "${var.tag_provisioner}"
+    KeepRunning = "${var.tag_keeprunning}"
   }
   root_block_device {
     volume_type           = "${var.volume_type}"
